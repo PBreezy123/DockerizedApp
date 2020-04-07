@@ -4,4 +4,12 @@ services:
     build:
       context: ./ReverseProxy
     ports:
-      - 80:80
+      - 81:80
+      - 443:443
+  app:
+    build:
+      context: ./App
+    ports:
+      - 3000:3000 
+    volumes:
+      - ./App/NodeApplication:/var/www
